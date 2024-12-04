@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an issue with unexpected behavior when using the `calc()` function with percentages and `em` units:
+
+```css
+.container {
+  width: calc(50% - 2em);
+}
+```
+
+The intention is to create a container whose width is 50% of its parent's width, minus 2em. However, depending on the context, `em` might not be calculated as expected, sometimes leading to unexpected results because the reference for `em` is not consistent in all cases.  It can lead to unpredictable widths. 
+
+Another common error is the use of units within `calc()` that aren't compatible.  For example:
+
+```css
+.element {
+  width: calc(100px + 50%); /* Incorrect */
+}
+```
+
+This will likely fail because pixels (`px`) and percentages (`%`) are not directly additive in this manner within `calc()`.
