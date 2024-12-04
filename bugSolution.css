@@ -1,0 +1,15 @@
+To resolve the issue, it's recommended to avoid using `em` units within `calc()` alongside percentages unless the context of `em` unit is meticulously controlled. A more reliable approach is to use a fixed unit like pixels (`px`) or viewport units (`vw`):
+
+```css
+/* Solution 1: Using pixels */
+.container {
+  width: calc(50% - 32px);
+}
+
+/* Solution 2: Using viewport width units (vw) */
+.container {
+  width: calc(50vw - 2em);
+}
+```
+
+Choosing between pixels and viewport units depends on whether you want the element's size to be relative to the parent container or the viewport.  Using `vw` creates a width relative to the viewport which is often more consistent and predictable.
